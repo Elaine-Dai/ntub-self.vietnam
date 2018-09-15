@@ -1,0 +1,116 @@
+@import "_all.scss";
+header {
+    background: #eef0f0;
+}
+
+main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+}
+
+.selection {
+    width: 250px;
+    background: #eef0f0;
+    box-shadow: -4px 0px 3px #ddd inset, 2px 0px 3px #ddd;
+    >* {
+        border-bottom: 1px solid #ddd;
+    }
+    &__title {
+        font-size: 36px;
+        text-align: center;
+        padding: 6px;
+        width: 100%;
+    }
+    &__class {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        font-size: 16px;
+        padding-right: 20px;
+        padding-left: 14px;
+        height: 50px;
+        i {
+            color: $gray-600;
+        }
+    }
+}
+
+.tour {
+    position: relative;
+    margin-top: 20px;
+    padding-bottom: 75px;
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100vw - 250px);
+    &__spot {
+        position: relative;
+        width: 20%;
+        text-align: center;
+        margin: 2.5%;
+        transition: 1s;
+        h2 {
+            margin-bottom: 10px;
+            margin-top: 10px;
+            color: $gray-800;
+            font-weight: bold;
+            background: white;
+        }
+        p {
+            opacity: 0;
+            width: 100%;
+            line-height: 220px;
+            position: absolute;
+            z-index: 2;
+            color: white;
+            letter-spacing: 0.8rem;
+            &:hover {
+                opacity: 1;
+                transition: all .6s;
+            }
+            &:hover~img {
+                filter: blur(3px) brightness(70%);
+                transform: scale(1.05);
+                transition: all .6s;
+            }
+        }
+        i {
+            position: absolute;
+            z-index: 10;
+            right: 5px;
+            top: 5px;
+            color: white;
+            font-size: 28px;
+        }
+    }
+    img {
+        width: 100%;
+        height: 220px;
+    }
+}
+
+.pageController {
+    position: absolute;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    i {
+        @include size(30px);
+        background: #000000;
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 14px;
+    }
+    span {
+        font-weight: 900;
+        margin: 18px;
+        font-size: 18px;
+    }
+}

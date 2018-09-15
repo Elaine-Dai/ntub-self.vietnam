@@ -1,0 +1,210 @@
+    @import "_all.scss";
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: Microsoft JhengHei;
+        padding: 0;
+        margin: 0;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    header {
+        width: 100%;
+        height: 50px;
+        background: rgba(#000000, 0.35);
+        z-index: 99;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .logo {
+        position: absolute;
+        top: 0;
+        width: 220px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 5;
+        &__link {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        &__img {
+            @include size(50px);
+            border-radius: 10%;
+            margin-right: 10px;
+        }
+        &__text {
+            display: flex;
+            align-items: center;
+            color: $grapefruit;
+            font-weight: bold;
+            font-size: 26px;
+        }
+        &:hover {
+            background: rgba( #4a4a4a, 0.35);
+        }
+    }
+    
+    .account {
+        position: absolute;
+        color: darken( $blue, 20%);
+        font-size: 50px;
+        right: 0;
+        cursor: pointer;
+    }
+    
+    .aside {
+        position: fixed;
+        z-index: 100;
+        top: 0;
+    }
+    
+    .nav {
+        transition: .5s;
+        background: $gray-800;
+        font-size: 1.5em;
+        height: 100vh;
+        width: 250px;
+        position: absolute;
+        top: 0;
+        left: -250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10vh 0px 10vh 0px;
+        &__button {
+            outline: none;
+            cursor: pointer;
+            border: none;
+            box-shadow: $btn-box-shadow;
+            &_expand {
+                @include size(50px);
+                background-image: url(../images/NAV.jpg);
+                background-size: cover;
+            }
+            &_close {
+                @include size(20px);
+                background-image: url(../images/X.png);
+                background-size: cover;
+                top: 0;
+                right: 0;
+                border-radius: 100%;
+                margin-bottom: 30%;
+                position: absolute;
+            }
+        }
+        &__item {
+            padding: 14px;
+            border-bottom: 1px solid rgba(#4a4a4a, 0.35);
+            padding-left: 50px;
+            width: 100%;
+            font-weight: bold;
+            margin-top: 0;
+            color: $primary;
+            transition: .5s;
+            &:hover {
+                background: $secondary;
+            }
+        }
+    }
+    
+    .text__title {
+        color: $grapefruit;
+        font-weight: 900;
+        font-size: 2.5em;
+        margin: 0;
+    }
+    
+    //rwd
+    @media (max-width: 800px) {
+        /* Mobile */
+        .nav {
+            font-size: 1.8em;
+            width: 100vw;
+            left: -100vw;
+            &__item {
+                padding-left: 25%;
+            }
+            &__button {
+                &_close {
+                    @include size(30px);
+                }
+            }
+        }
+    }
+    
+    ////登入
+    .member {
+        background: rgba(#000000, 0.3);
+        position: fixed;
+        @include size(100vw, 100vh);
+        top: 0;
+        left: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: none;
+    }
+    
+    .login {
+        background: white;
+        border-radius: 5px;
+        width: 400px;
+        &__options {
+            line-height: 50px;
+            display: flex;
+            height: 50px;
+            width: 100%;
+            font-size: 2em;
+            border-bottom: 1px solid;
+            .isPress {
+                background: rgba(#4a4a4a, 0.3);
+            }
+            div {
+                flex: 1;
+                text-align: center;
+                cursor: pointer;
+            }
+            div:first-child {
+                border-right: 1px solid;
+            }
+        }
+        &__input {
+            padding-left: 10px;
+            height: 28px;
+            width: 80%;
+            font-size: 20px;
+            margin-top: 16px;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+            background: $gray-500;
+             ::placeholder {
+                color: $gray-800;
+            }
+        }
+        &__mail {
+            display: none;
+        }
+        &__btn {
+            margin: 16px 0px 28px 50%;
+            transform: translateX(-50%);
+            @include size(30%, 30px);
+            font-size: 24px;
+            text-align: center;
+            background: darken($blue, 30%);
+            color: white;
+            border-radius: 15px;
+            cursor: pointer;
+            border: none;
+        }
+    }
